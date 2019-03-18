@@ -1,0 +1,28 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "React task 2",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
+  },
+  "author": "Ilya Novikau",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "jest": "^24.4.0",
+    "react": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
