@@ -4,7 +4,8 @@
   "description": "React task 2",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production --output ./build/main.js",
     "start": "webpack-dev-server --open"
   },
   "author": "Ilya Novikau",
