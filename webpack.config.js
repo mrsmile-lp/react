@@ -11,7 +11,7 @@ module.exports = {
     mode: NODE_ENV,
 
     devServer: {
-        contentBase: './dist'
+        contentBase: './'
     },
     module: {
         rules: [
