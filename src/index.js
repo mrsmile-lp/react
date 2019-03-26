@@ -1,4 +1,18 @@
-'use strict';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
+import Header from "./components/header";
 
-alert('hi');
-alert('oooo');
+
+class App extends React.Component {
+    render() {
+        return (
+            <div className="App">
+                <Header/>
+            </div>
+        );
+    }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);

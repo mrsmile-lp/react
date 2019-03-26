@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "React task 2",
   "main": "index.js",
+  "repository": {
+    "url": "https://github.com/mrsmile-lp/react"
+  },
   "scripts": {
     "test": "jest",
     "dev": "webpack --mode development",
@@ -12,9 +15,8 @@
   "author": "Ilya Novikau",
   "license": "ISC",
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
     "jest": "^24.4.0",
-    "react": "^16.8.4",
+    "react-loader": "^2.4.5",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
     "redux": "^4.0.1"
@@ -22,8 +24,19 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "7.3.4",
+    "@babel/plugin-transform-strict-mode": "^7.2.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-file-loader": "^1.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
