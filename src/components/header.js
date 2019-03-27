@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SearchPanel from "./searchPanel";
 import GeneralTitle from "./generalTitle";
 
 class Header extends React.Component {
@@ -7,6 +8,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <GeneralTitle/>
+                <SearchPanel/>
             </div>
         )
     }

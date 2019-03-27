@@ -1,5 +1,6 @@
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = 'development';
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -14,8 +15,12 @@ module.exports = {
     mode: NODE_ENV,
 
     devServer: {
-        contentBase: './'
+        contentBase: './dist',
+        hot: true
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+    ],
     module: {
         rules: [
             {
@@ -24,6 +29,20 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'css-hot-loader',
+                    'style-loader',
+                    'css-loader',
+                    
+                ]
+            },
+            {
+                test: /\.(jpg|jpeg|gif|png|woff|woff2|eot|ttf|svg)$/,
+                exclude: /node_modules/,
+                loader: 'url-loader?limit=1024'
             }
         ]
     }

@@ -10,16 +10,18 @@
     "test": "jest",
     "dev": "webpack --mode development",
     "build": "webpack --mode production --output ./build/main.js",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --hot"
   },
   "author": "Ilya Novikau",
   "license": "ISC",
   "dependencies": {
     "jest": "^24.4.0",
+    "react-hot-loader": "^4.8.0",
     "react-loader": "^2.4.5",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -34,9 +36,15 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-file-loader": "^1.1.1",
+    "css-hot-loader": "^1.4.4",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
