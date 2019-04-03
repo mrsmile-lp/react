@@ -1,15 +1,11 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import {Footer} from '../src/components/footer';
+import renderer from 'react-test-renderer';
+import Footer from '../src/components/footer';
 
-configure({ adapter: new Adapter() });
-
-
-it ('renders correctly', () => {
-    const component = shallow(
-        <div className="footer">netflixroulette</div>
+it('Footer component renders correctly', () => {
+    const component = renderer.create(
+        <Footer/>
     );
-    expect(Footer).toEqual(component);
+    let tree = component.toJSON();
+    expect(Footer).toMatchSnapshot();
 });

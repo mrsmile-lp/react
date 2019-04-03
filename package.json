@@ -7,7 +7,7 @@
     "url": "https://github.com/mrsmile-lp/react"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --color --coverage",
     "dev": "webpack --mode development",
     "build": "webpack --mode production --output ./build/main.js",
     "start": "webpack-dev-server --open --hot"
