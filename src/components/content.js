@@ -20,7 +20,7 @@ class Content extends React.Component {
     }
     render() {
         this.getMovies(this.state.url);
-        console.log(state.content.data[0].id);
+        console.log(this.state.content.data[0].id);
         return(
             <div className="content">
                 {this.state.content.data[0].id}
