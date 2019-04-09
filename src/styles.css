@@ -1,3 +1,25 @@
 .header {
     background-image: url(./img/header.jpg);
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    padding: 50px 0 50px 0;
+}
+
+.movie-item {
+    width: 180px;
+}
+
+.movie-poster {
+    width: 180px;
+}
+
+.title {
+    width: 100%;
+}
