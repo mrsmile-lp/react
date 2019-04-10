@@ -5,7 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     context: path.join(__dirname, 'src'),
-    entry: "./index.js",
+    entry: [
+        "./index.js",
+        "react-hot-loader/patch"
+    ],
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, 'dist')
@@ -26,7 +29,7 @@ module.exports = {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
-          })
+        })
     ],
     module: {
         rules: [
@@ -40,15 +43,15 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                  {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                      
-                    }
-                  },
-                  "css-loader"
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+
+                        }
+                    },
+                    "css-loader"
                 ]
-              },
+            },
             {
                 test: /\.(jpg|jpeg|gif|png|woff|woff2|eot|ttf|svg)$/,
                 exclude: /node_modules/,

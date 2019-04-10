@@ -10,7 +10,7 @@
     "test": "jest --color --coverage",
     "dev": "webpack --mode development",
     "build": "webpack --mode production --output ./build/main.js",
-    "start": "webpack-dev-server --open --hot"
+    "start": "webpack-dev-server --open"
   },
   "author": "Ilya Novikau",
   "license": "ISC",
@@ -47,7 +47,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
-    "react-dom": "^16.8.6",
+    
     "react-test-renderer": "^16.8.6",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
