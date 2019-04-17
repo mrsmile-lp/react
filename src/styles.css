@@ -11,8 +11,8 @@
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: flex-start;
     padding: 50px 0 50px 0;
 }
 
@@ -21,6 +21,7 @@
     height: 350px;
     position: relative;
     margin-bottom: 20px;
+    margin-right: 8px;
 }
 
 .movie-poster {
