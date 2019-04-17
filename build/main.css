@@ -2,4 +2,46 @@
     background-image: url(3c02874c6110b2b1ba5db632d7705680.jpg);
 }
 
+.general-title {
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    padding: 50px 0 50px 0;
+}
+
+.movie-item {
+    width: 180px;
+    height: 330px;
+    position: relative;
+}
+
+.movie-poster {
+    width: 180px;
+    height: 270px;
+}
+
+.movie-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.movie-genre {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.title {
+    width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map*/

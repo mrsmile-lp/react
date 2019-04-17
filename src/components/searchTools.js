@@ -6,13 +6,13 @@ class SearchTools extends React.Component {
         filter: ''
     };    
 
-    updateQuery({target: {value}}) {
-        console.log(this.state);
+    updateQuery = ({target: {value}}) => {
         this.setState({
             query: value,
             filter: ''
         })
     }
+
     render() {
         const {query, filter} = this.state;
         return(
