@@ -1,9 +1,9 @@
 import React from "react";
 
-function GeneralTitle() {
+function GeneralTitle({title}) {
   return (
     <div className="general-title">
-      <h1>Netflixroulette</h1>
+      <h1>{title}</h1>
     </div>
   );
 }

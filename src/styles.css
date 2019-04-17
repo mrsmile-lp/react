@@ -18,8 +18,9 @@
 
 .movie-item {
     width: 180px;
-    height: 330px;
+    height: 350px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .movie-poster {
@@ -35,9 +36,15 @@
 }
 
 .movie-genre {
+    width: 100%;
+    height: 36px;
+    border-top: 2px solid #D84315;
+    border-bottom: 2px solid #D84315;
+    display: flex;
     position: absolute;
     bottom: 0;
     left: 0;
+    align-items: baseline;
 }
 
 .title {

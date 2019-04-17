@@ -6,7 +6,7 @@ import GeneralTitle from "./generalTitle";
 function Header() {
   return (
     <div className="header">
-      <GeneralTitle />
+      <GeneralTitle title="Netflixroulette" />
       <SearchPanel />
     </div>
   );
