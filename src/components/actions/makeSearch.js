@@ -1,5 +1,7 @@
-export const makeSearch = (query, filter) => ({
+export const makeSearch = (query, filter, endPoint, content) => ({
     type: 'MAKE_SEARCH',
     query,
-    filter
+    filter,
+    endPoint,
+    content
 });

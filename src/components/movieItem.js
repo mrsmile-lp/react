@@ -1,4 +1,6 @@
 import React from "react";
+import queries from '../reducers/queries';
+import {connect} from 'react-redux';
 
 class MovieItem extends React.Component {
     constructor() {
@@ -8,23 +10,30 @@ class MovieItem extends React.Component {
             content: []
         };
 
-       this.getMovies = this.getMovies.bind(this);
+       //this.getMovies = this.getMovies.bind(this);
     };
-    async getMovies(endpoint) {
-        const movies = await fetch(endpoint);
-        const jsonMovies = await movies.json();
-        this.setState({
-            content: jsonMovies.data
-        });
-    }
+    // async getMovies(endpoint) {
+    //     const movies = await fetch(endpoint);
+    //     const jsonMovies = await movies.json();
+    //     this.setState({
+    //         content: jsonMovies.data
+    //     });
+    // }
+
+    // componentDidMount() {
+    //     this.getMovies(this.state.url);
+    // }
 
     componentDidMount() {
-        this.getMovies(this.state.url);
+        console.log(this.props)
     }
 
     render() {
+        console.log(this.props.content[3]);
+        const content = this.props.content;
+
         return(
-            this.state.content.map(item => {
+            content.map(item => {
                 return (
                     <div className="movie-item" key={item.id}>
                         <img className="movie-poster" src={item.poster_path}/>
@@ -42,4 +51,6 @@ class MovieItem extends React.Component {
     };
 }
 
-export default MovieItem;
+export default connect(state =>({
+    content: state.queries
+}))(MovieItem);

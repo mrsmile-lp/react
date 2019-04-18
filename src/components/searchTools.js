@@ -6,7 +6,9 @@ import {makeSearch} from './actions/makeSearch';
 class SearchTools extends React.Component {
     state = {
         query: '',
-        filter: ''
+        filter: 'title',
+        endPoint: 'https://reactjs-cdp.herokuapp.com/movies',
+        content: []
     };    
 
     updateQuery = ({target: {value}}) => {
@@ -22,13 +24,24 @@ class SearchTools extends React.Component {
     }
 
     makeSearchQuery = () => {
-        const {query, filter} = this.state;
+        const {query, filter, endPoint, content} = this.state;
         const {makeSearch} = this.props;
-        makeSearch(query, filter);
+        makeSearch(query, filter, endPoint, content);
         this.setState({
-            query: '',
-            filter: ''
+            query: ''
         })
+    }
+
+    async getMovies(endpoint) {
+        const movies = await fetch(endpoint);
+        const jsonMovies = await movies.json();
+        await this.setState({
+            content: jsonMovies.data
+        });
+    }
+
+    componentDidMount() {
+        this.getMovies(this.state.endPoint);
     }
 
     render() {
@@ -53,5 +66,7 @@ class SearchTools extends React.Component {
 
 export default connect(state => ({
     filter: state.filter,
-    query: state.query
+    query: state.query,
+    content: state.content,
+    endPoint: state.endPoint
 }), {makeSearch}) (SearchTools);
