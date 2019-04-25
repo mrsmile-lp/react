@@ -9,27 +9,17 @@ class MovieItem extends React.Component {
             url: 'https://reactjs-cdp.herokuapp.com/movies',
             content: []
         };
-
-       //this.getMovies = this.getMovies.bind(this);
     };
-    // async getMovies(endpoint) {
-    //     const movies = await fetch(endpoint);
-    //     const jsonMovies = await movies.json();
-    //     this.setState({
-    //         content: jsonMovies.data
-    //     });
-    // }
-
-    // componentDidMount() {
-    //     this.getMovies(this.state.url);
-    // }
 
     componentDidMount() {
-        console.log(this.props)
+        
+    }
+
+    shouldComponentUpdate() {
+        return true;
     }
 
     render() {
-        console.log(this.props.content[3]);
         const content = this.props.content;
 
         return(

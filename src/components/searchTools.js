@@ -8,6 +8,7 @@ class SearchTools extends React.Component {
         query: '',
         filter: 'title',
         endPoint: 'https://reactjs-cdp.herokuapp.com/movies',
+        searchUrl: 'https://reactjs-cdp.herokuapp.com/movies',
         content: []
     };    
 
@@ -24,11 +25,13 @@ class SearchTools extends React.Component {
     }
 
     makeSearchQuery = () => {
-        const {query, filter, endPoint, content} = this.state;
+        const {content} = this.state;
         const {makeSearch} = this.props;
-        makeSearch(query, filter, endPoint, content);
+        const searchUrl = this.state.endPoint + '?search=' + this.state.query + '&searchBy=' + this.state.filter + '&limit=50';
+        makeSearch(content);
         this.setState({
-            query: ''
+            query: '',
+            searchUrl: searchUrl
         })
     }
 
@@ -40,8 +43,13 @@ class SearchTools extends React.Component {
         });
     }
 
-    componentDidMount() {
-        this.getMovies(this.state.endPoint);
+    async componentDidMount() {
+        await this.getMovies(this.state.searchUrl);
+    }
+
+    async shouldComponentUpdate() {
+        await this.getMovies(this.state.searchUrl);
+        return false;
     }
 
     render() {
@@ -65,8 +73,5 @@ class SearchTools extends React.Component {
 }
 
 export default connect(state => ({
-    filter: state.filter,
-    query: state.query,
-    content: state.content,
-    endPoint: state.endPoint
+    content: state.content
 }), {makeSearch}) (SearchTools);
