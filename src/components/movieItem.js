@@ -20,7 +20,7 @@ class MovieItem extends React.Component {
     }
 
     render() {
-        const content = this.props.content;
+        const {content} = this.props;
 
         return(
             content.map(item => {

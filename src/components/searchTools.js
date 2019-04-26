@@ -7,8 +7,8 @@ class SearchTools extends React.Component {
     state = {
         query: '',
         filter: 'title',
-        endPoint: 'https://reactjs-cdp.herokuapp.com/movies',
-        searchUrl: 'https://reactjs-cdp.herokuapp.com/movies',
+        endPoint: 'https://react-cdp-api.herokuapp.com/movies',
+        searchUrl: 'https://react-cdp-api.herokuapp.com/movies',
         content: []
     };    
 
@@ -24,15 +24,9 @@ class SearchTools extends React.Component {
         })
     }
 
-    makeSearchQuery = () => {
-        const {content} = this.state;
-        const {makeSearch} = this.props;
+        makeSearchQuery = () => {
         const searchUrl = this.state.endPoint + '?search=' + this.state.query + '&searchBy=' + this.state.filter + '&limit=50';
-        makeSearch(content);
-        this.setState({
-            query: '',
-            searchUrl: searchUrl
-        })
+        this.getMovies(searchUrl);
     }
 
     async getMovies(endpoint) {
@@ -41,15 +35,16 @@ class SearchTools extends React.Component {
         await this.setState({
             content: jsonMovies.data
         });
+        const {content} = this.state;
+        const {makeSearch} = this.props;
+        makeSearch(content);
     }
 
     async componentDidMount() {
         await this.getMovies(this.state.searchUrl);
-    }
-
-    async shouldComponentUpdate() {
-        await this.getMovies(this.state.searchUrl);
-        return false;
+        const {content} = this.state;
+        const {makeSearch} = this.props;
+        makeSearch(content);
     }
 
     render() {
@@ -63,7 +58,7 @@ class SearchTools extends React.Component {
                     Title
                 </label>
                 <label>
-                    <input type="radio" className="search-by-button" name="filter-type" value="genre" onChange={this.queryFilter}></input>
+                    <input type="radio" className="search-by-button" name="filter-type" value="genres" onChange={this.queryFilter}></input>
                     Genre
                 </label>                
                 <button className="search-button" onClick={this.makeSearchQuery}>Search</button>
