@@ -1,6 +1,7 @@
 import React from "react";
 import queries from '../reducers/queries';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class MovieItem extends React.Component {
     constructor() {
@@ -10,10 +11,6 @@ class MovieItem extends React.Component {
             content: []
         };
     };
-
-    componentDidMount() {
-        
-    }
 
     shouldComponentUpdate() {
         return true;
@@ -26,6 +23,7 @@ class MovieItem extends React.Component {
             content.map(item => {
                 return (
                     <div className="movie-item" key={item.id}>
+                    <Link to={'film/' + item.id}>
                         <img className="movie-poster" src={item.poster_path}/>
                         <div className="movie-label">
                             <div className="title">{item.title}</div>
@@ -34,6 +32,7 @@ class MovieItem extends React.Component {
                         <div className="movie-genre">{item.genres.map(genre => {
                             return genre + ' ';
                         })}</div>
+                        </Link>
                     </div>
                 )
             })           
