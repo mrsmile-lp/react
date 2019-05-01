@@ -8,6 +8,7 @@ import store from './reducers/store';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Content from "./components/content";
 import Movie from "./components/movie";
+import ErrorPage from "./components/error";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render((
@@ -17,6 +18,7 @@ ReactDOM.render((
                 <Switch>
                     <Route exact path='/' component={Content}/>
                     <Route path='/film/:id' component={Movie}/>
+                    <Route path='*' component={ErrorPage}/>
                 </Switch>
             </App>
         </BrowserRouter>        
