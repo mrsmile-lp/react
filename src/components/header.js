@@ -3,15 +3,13 @@ import ReactDOM from "react-dom";
 import SearchPanel from "./searchPanel";
 import GeneralTitle from "./generalTitle";
 
-class Header extends React.Component {
-    render() {
-        return (
-            <div className="header">
-                <GeneralTitle/>
-                <SearchPanel/>
-            </div>
-        )
-    }
+function Header() {
+  return (
+    <div className="header">
+      <GeneralTitle title="Netflixroulette" />
+      <SearchPanel />
+    </div>
+  );
 }
 
 export default Header;

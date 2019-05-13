@@ -1,16 +1,72 @@
 import React from "react";
+import {connect} from 'react-redux';
+import {makeSearch} from './actions/makeSearch';
+
 
 class SearchTools extends React.Component {
+    state = {
+        query: '',
+        filter: 'title',
+        endPoint: 'https://react-cdp-api.herokuapp.com/movies',
+        searchUrl: 'https://react-cdp-api.herokuapp.com/movies',
+        content: []
+    };    
+
+    updateQuery = ({target: {value}}) => {
+        this.setState({
+            query: value
+        })
+    }
+
+    queryFilter = ({target : {value}}) => {
+        this.setState({
+            filter: value
+        })
+    }
+
+        makeSearchQuery = () => {
+        const searchUrl = this.state.endPoint + '?search=' + this.state.query + '&searchBy=' + this.state.filter + '&limit=50';
+        this.getMovies(searchUrl);
+    }
+
+    async getMovies(endpoint) {
+        const movies = await fetch(endpoint);
+        const jsonMovies = await movies.json();
+        await this.setState({
+            content: jsonMovies.data
+        });
+        const {content} = this.state;
+        const {makeSearch} = this.props;
+        makeSearch(content);
+    }
+
+    async componentDidMount() {
+        await this.getMovies(this.state.searchUrl);
+        const {content} = this.state;
+        const {makeSearch} = this.props;
+        makeSearch(content);
+    }
+
     render() {
+        const {query} = this.state;
         return(
             <div className="search-tools">
+                <input type="text" placeholder="search" onChange={this.updateQuery} value={query}></input>
                 <div className="search-by-label">Search by</div>
-                <button className="search-by-button">Title</button>
-                <button className="search-by-button">Genre</button>
-                <button className="search-button">Search</button>
+                <label>
+                    <input type="radio" className="search-by-button" name="filter-type" value="title" onChange={this.queryFilter}></input>
+                    Title
+                </label>
+                <label>
+                    <input type="radio" className="search-by-button" name="filter-type" value="genres" onChange={this.queryFilter}></input>
+                    Genre
+                </label>                
+                <button className="search-button" onClick={this.makeSearchQuery}>Search</button>
             </div>
         );
     }
 }
 
-export default SearchTools;
+export default connect(state => ({
+    content: state.content
+}), {makeSearch}) (SearchTools);

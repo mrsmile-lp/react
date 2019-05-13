@@ -9,5 +9,5 @@ it('general title is rendered normally', () => {
     const component = shallow(
         <GeneralTitle/>
     );
-    expect(component.text()).toEqual('netflixroulette');
+    expect(component.text()).toEqual('Netflixroulette');
 })

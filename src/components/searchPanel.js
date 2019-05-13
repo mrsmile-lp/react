@@ -1,6 +1,5 @@
 import React from "react";
 import SearchTitle from "./searchTitle";
-import SearchBar from "./searchBar";
 import SearchTools from "./searchTools";
 
 class SearchPanel extends React.Component {
@@ -8,7 +7,6 @@ class SearchPanel extends React.Component {
         return(
             <div className="search-panel">
                 <SearchTitle/>
-                <SearchBar/>
                 <SearchTools/>
             </div>
         )

@@ -1,3 +1,53 @@
 .header {
     background-image: url(./img/header.jpg);
 }
+
+.general-title {
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 50px 0 50px 0;
+}
+
+.movie-item {
+    width: 180px;
+    height: 350px;
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 8px;
+}
+
+.movie-poster {
+    width: 180px;
+    height: 270px;
+}
+
+.movie-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.movie-genre {
+    width: 100%;
+    height: 36px;
+    border-top: 2px solid #D84315;
+    border-bottom: 2px solid #D84315;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    align-items: baseline;
+}
+
+.title {
+    width: 100%;
+}
