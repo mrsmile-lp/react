@@ -53,15 +53,15 @@ class SearchTools extends React.Component {
             <div className="search-tools">
                 <input type="text" placeholder="search" onChange={this.updateQuery} value={query}></input>
                 <div className="search-by-label">Search by</div>
-                <label>
+                <label className="radio">
                     <input type="radio" className="search-by-button" name="filter-type" value="title" onChange={this.queryFilter}></input>
-                    Title
+                    <div className="radio__text">Title</div>
                 </label>
-                <label>
+                <label className="radio">
                     <input type="radio" className="search-by-button" name="filter-type" value="genres" onChange={this.queryFilter}></input>
-                    Genre
+                    <div className="radio__text">Genre</div>
                 </label>                
-                <button className="search-button" onClick={this.makeSearchQuery}>Search</button>
+                <div className="search-button button" onClick={this.makeSearchQuery}>Search</div>
             </div>
         );
     }
