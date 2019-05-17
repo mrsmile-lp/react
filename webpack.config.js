@@ -5,10 +5,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   context: path.join(__dirname, "src"),
-  entry: ["./index.js", "react-hot-loader/patch"],
+  entry: {
+    client: './src/client.js',
+    bundle: './src/bundle.js'
+  },
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, 'assets'),
+    filename: "[name].js"
   },
   watch: NODE_ENV == "development",
   devtool: NODE_ENV == "development" ? "source-map" : null,
@@ -32,9 +35,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: "babel-loader"
       },
       {
         test: /\.css$/,
