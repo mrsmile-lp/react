@@ -1,0 +1,14 @@
+.moviesList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.poster {
+    height: 200px;
+}
+
+.movieItem {
+    width: 136px;
+}
