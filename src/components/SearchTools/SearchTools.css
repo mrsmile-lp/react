@@ -1,0 +1,36 @@
+.searchTools {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+label {
+    margin-right: 20px;
+    display: flex;
+}
+
+.button {
+    height: 20px;
+    width: 48px;
+    background-color: #42A5F5;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #1976D2;
+    border-radius: 4px;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+}
+
+.button:hover {
+    border-color: #42A5F5;
+    background-color: #BBDEFB;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+}
+
+.button:active {
+    background-color: #42A5F5;
+}
