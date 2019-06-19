@@ -15,8 +15,8 @@ const Root = ({ Router, location, context }) => (
     <div>
       <Header />
       <Switch>
+        <Route path="movie/:id" component={MoviePage} />
         <Route exact path="/" component={HomePage} />
-        <Route path="movies/:id" component={MoviePage} />
         <Redirect to="/" />
       </Switch>
       <MoviesList />

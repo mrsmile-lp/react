@@ -25,12 +25,14 @@ class MoviesList extends React.Component {
     return (
       <div className={styles.moviesList}>
         {movies.map(movie => (
-          <div key={movie.id} className={styles.movieItem}>
-            <div>
-              <img src={movie.poster_path} className={styles.poster} />
+          <Link key={movie.id} to={`movie/${movie.id}`}>
+            <div className={styles.movieItem}>
+              <div>
+                <img src={movie.poster_path} className={styles.poster} />
+              </div>
+              <div>{movie.title}</div>
             </div>
-            <div>{movie.title}</div>
-          </div>
+          </Link>
         ))}
       </div>
     );
