@@ -22,9 +22,9 @@ class MoviePage extends React.Component {
 
     render() {
         const { movie } = this.state;
-        console.log(movie);
         return (
             <div className={styles.wrapper}>
+            <Link to="/">Back</Link>
                 <div className={styles.movie}>
                     <div>
                         <img src={movie.poster_path} />
