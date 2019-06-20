@@ -23,13 +23,13 @@ class searchTools extends React.Component {
     });
   }
 
-  setQuery({ target: { value } }) {
+  setQuery = ({ target: { value } }) => {
     this.setState({
       query: value
     });
   }
 
-  setFilter({ target: { value } }) {
+  setFilter = ({ target: { value } }) => {
     this.setState({
       filter: value
     });
