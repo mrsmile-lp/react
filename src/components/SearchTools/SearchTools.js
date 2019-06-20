@@ -8,22 +8,25 @@ class searchTools extends React.Component {
     query: "",
     filter: ""
   };
-
+  
   async getMovies() {
-    console.log(this);
     const { query } = this.state;
-    const { searchBy } = this.state;
+    const { filter } = this.state;
     const res = await fetch(
-      `http://react-cdp-api.herokuapp.com/movies?search=${query}&searchBy=${searchBy}`
-    );
-    const resJson = await res.json();
-    const moviesArray = resJson.data;
-    this.setState({
-      movies: moviesArray
-    });
-  }
+      `http://react-cdp-api.herokuapp.com/movies?search=${query}&searchBy=${filter}`
+      );      
+      const resJson = await res.json();
+      const moviesArray = resJson.data;
+      await this.setState({
+        movies: moviesArray
+      });
+    }
+    
+    makeSearch = () => {
+      this.getMovies();
+    }
 
-  setQuery = ({ target: { value } }) => {
+    setQuery = ({ target: { value } }) => {
     this.setState({
       query: value
     });
@@ -36,7 +39,6 @@ class searchTools extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this);
   }
 
   render() {
@@ -62,7 +64,7 @@ class searchTools extends React.Component {
           />
           <div>Genre</div>
         </label>
-        <div className={styles.button} onClick={this.getMovies}>
+        <div className={styles.button} onClick={this.makeSearch}>
           Search
         </div>
       </div>

@@ -1,3 +1,4 @@
+const NODE_ENV = "development";
 const path = require('path');
 const webpack = require('webpack');
 
@@ -10,6 +11,9 @@ module.exports = {
     filename: 'js/[name].js',
     path: path.resolve('./public'),
   },
+
+  watch: NODE_ENV == "development",
+  devtool: NODE_ENV == "development" ? "source-map" : null,
 
   resolve: {
     extensions: ['.js', '.jsx'],
